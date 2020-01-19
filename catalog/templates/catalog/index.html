@@ -1,0 +1,15 @@
+{% extends "catalog/base_generic.html" %}
+
+{% block content %}
+<h1>Local Library Home</h1>
+    <p>welcom to <em>local library</em> a very basic Django website</p>
+<h2>Dynamic content</h2>
+    <p>the library has the record count:</p>
+    <ul>
+        <li><strong>Book:</strong>{{ num_book }}</li>
+        <li><strong>copies:</strong>{{ num_instance }}</li>
+        <li><strong>copies avalable:</strong>{{ num_instance_available }}</li>
+        <li><strong>Authors:</strong>{{ num_author }}</li>
+
+    </ul>
+{% endblock  %}

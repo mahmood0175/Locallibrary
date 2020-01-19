@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title %}<title>local library</title>{% endblock %}
+    <meta charset='utf-8' >
+    <meta name='viewport' content='width=device-width, inithial-scale=1'>
+    {% load static %}
+    <link rel='stylesheet' href='{% static "catalog/styles.css" %}' >
+</head>
+<body>
+    <div>
+        <div>
+        {% block slidebar %}
+        <ul>
+            <li><a href='{% url "catalog:index" %}'>Home</a></li>
+            <li><a href=''>All books</a></li>
+            <li><a href=''>All authors</a></li>
+            <li><a href='/admin/' >Admin</a></li>
+        </ul>       
+        {% endblock  %} 
+        </div>
+        <div>
+        {% block content %}
+        
+        {% endblock  %}
+        </div>
+    </div>
+</body>
+</html>
