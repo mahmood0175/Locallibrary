@@ -21,8 +21,11 @@ class Book(models.Model):
         return self.title
 
     def get_absulot_url(self):
-        return reverse('book_detail', args=[str(self.id)])
+        return reverse('catalog:book_detail', args=[str(self.id)])
 
+    def display_genre(self):
+        return ', '.join([genre.name for genre in self.genre.all()])
+        display_genre.short_description = "Genre"
 
 class BookInstance(models.Model):
     id =models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='unique id for this particular')
@@ -52,7 +55,7 @@ class Author(models.Model):
     date_of_death = models.DateTimeField()
 
     def get_absulot_url(self):
-        return reverse('author_detail', args=[str(self.id)])
+        return reverse('catalog:author_detail', args=[str(self.id)])
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
